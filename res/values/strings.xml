@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CancerDog</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="dialog_title">Experimental #</string>
+    <string name="dialog_message">Please pick the experimental for #</string>
+    
+    <string-array name="experimentals">
+        <item>Malignant Cancer Blood Plasma</item>
+    </string-array>
+    
+    <string-array name="controls">
+        <item>Empty Jar</item>
+        <item>Normal Blood Plasma</item>
+        <item>Benign Blood Plasma</item>
+    </string-array>
+    
+    <string-array name="handlers">
+        <item>Sam</item>
+        <item>Alex</item>
+        <item>Morgan</item>
+        <item>Avery</item>
+    </string-array>
+    
+    <string-array name="dogs">
+        <item>Whimper</item>
+        <item>Ruff</item>
+        <item>Lab</item>
+    </string-array>
+    
+    <string-array name="results">
+        <item>Miss</item>
+        <item>False</item>
+        <item>Success</item>
+    </string-array>
+
+    <string-array name="directions">
+        <item>Clockwise</item>
+        <item>Counterclockwise</item>
+    </string-array>
+    
+</resources>
