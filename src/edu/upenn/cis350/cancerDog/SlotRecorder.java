@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+/**
+ * Handles parsing miss, false pos, false neg, etc data from wheel activity**/
+
 public class SlotRecorder extends GridLayout {
 	
 	private NumberRecorder[] nr;
@@ -42,7 +45,9 @@ public class SlotRecorder extends GridLayout {
 			this.addView(nr[i], new LayoutParams(spec(i), spec(2)));
 		}
 	}
-	
+	/**
+	 * returns number of misses, falses and successes
+	 */
 	Result getResult() {
 		result.numMiss = nr[0].getValue();
 		result.numFalse = nr[1].getValue();
