@@ -23,6 +23,9 @@ import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.util.Log;
 
+/**
+ * Handles all logic for trials -- the trials model**/
+
 public class Trial {
 	private static Integer numTrials;
 	public static Context context;
@@ -45,7 +48,7 @@ public class Trial {
 																	// on the
 																	// top in
 																	// trials
-
+/** Packages and returns trial object**/
 	public static Trial getTrial(int num) {
 		if (cache.containsKey(num)) {
 			return cache.get(num);
@@ -112,7 +115,7 @@ public class Trial {
 
 		return t;
 	}
-
+/** Gets number of current trial**/
 	public static int getNumTrials() {
 		if (numTrials == null) {
 			SharedPreferences mainPreferences = context.getSharedPreferences(
@@ -121,16 +124,19 @@ public class Trial {
 		}
 		return numTrials;
 	}
-
+/** Create next trial**/
 	public static Trial getNewTrial() {
 		return getTrial(getNumTrials());
 	}
+	
+/**Get current trial**/
 
 	public static Trial getCurrentTrial(Context c) {
 		context = c;
 		return getTrial(getNumTrials());
 	}
 
+/**Place vars to hashmap**/
 	private HashMap<String, Object> toHashMap() {
 		HashMap<String, Object> trial = new HashMap<String, Object>();
 		trial.put("experimentalSlot", expSlot);
@@ -152,6 +158,7 @@ public class Trial {
 		return trial;
 	}
 
+/**Edit trial result and post**/
 	public static void edit(int sessionNumber, String key, String val) {
 		SharedPreferences preferences = context.getSharedPreferences(
 				"edu.upenn.cis350.cancerDog.trial" + sessionNumber,
@@ -177,7 +184,9 @@ public class Trial {
 		PostJson task = new PostJson();
 		task.execute((HashMap<String, Object>[]) (new HashMap[] { trial }));
 	}
-
+	
+	
+/**Save trial**/
 	public void save(boolean doneWithTrial, boolean post) {
 		SharedPreferences preferences = context.getSharedPreferences(
 				"edu.upenn.cis350.cancerDog.trial" + sessionNumber,
@@ -357,7 +366,7 @@ public class Trial {
 	public void addDirection(String d) {
 		directions.add(d);
 	}
-
+/*Stringify data**/
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		s.append("sessionNumber: " + (sessionNumber + 1) + "\n");
@@ -392,7 +401,8 @@ public class Trial {
 
 		return s.toString();
 	}
-
+	
+/**Post to database**/
 	private static class PostJson extends
 			AsyncTask<HashMap<String, Object>, Void, Void> {
 
@@ -417,6 +427,7 @@ public class Trial {
 		}
 
 	}
+/**Runs in background to get trial sessions from heroku**/
 
 	private static class GetSessions extends AsyncTask<Void, Void, Void> {
 
