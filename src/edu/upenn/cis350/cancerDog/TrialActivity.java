@@ -12,11 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+/** Trial controller, initiates trial and takes in user input**/
 public class TrialActivity extends Activity{
 	public static final int ButtonClickActivity_ID = 2;
 	private EditText time, videographer, observers, date;
 	private Spinner handler, dog;
 
+/** Set trial start screen**/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,6 +72,7 @@ public class TrialActivity extends Activity{
 		time.setEnabled(false);
 	}
 	
+	/** Self explainatory**/ 
 	private void saveTrial() {
 		Trial t = Trial.getCurrentTrial(this);
 		t.setTime(time.getText().toString());
