@@ -21,10 +21,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
-import android.util.Log;
 
-/**
- * Handles all logic for trials -- the trials model**/
+import java.net.URLEncoder;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
 
 public class Trial {
 	private static Integer numTrials;
@@ -48,7 +50,7 @@ public class Trial {
 																	// on the
 																	// top in
 																	// trials
-/** Packages and returns trial object**/
+
 	public static Trial getTrial(int num) {
 		if (cache.containsKey(num)) {
 			return cache.get(num);
@@ -115,7 +117,7 @@ public class Trial {
 
 		return t;
 	}
-/** Gets number of current trial**/
+
 	public static int getNumTrials() {
 		if (numTrials == null) {
 			SharedPreferences mainPreferences = context.getSharedPreferences(
@@ -124,19 +126,16 @@ public class Trial {
 		}
 		return numTrials;
 	}
-/** Create next trial**/
+
 	public static Trial getNewTrial() {
 		return getTrial(getNumTrials());
 	}
-	
-/**Get current trial**/
 
 	public static Trial getCurrentTrial(Context c) {
 		context = c;
 		return getTrial(getNumTrials());
 	}
 
-/**Place vars to hashmap**/
 	private HashMap<String, Object> toHashMap() {
 		HashMap<String, Object> trial = new HashMap<String, Object>();
 		trial.put("experimentalSlot", expSlot);
@@ -158,7 +157,6 @@ public class Trial {
 		return trial;
 	}
 
-/**Edit trial result and post**/
 	public static void edit(int sessionNumber, String key, String val) {
 		SharedPreferences preferences = context.getSharedPreferences(
 				"edu.upenn.cis350.cancerDog.trial" + sessionNumber,
@@ -186,8 +184,11 @@ public class Trial {
 	}
 	
 	
-/**Save trial**/
+
 	public void save(boolean doneWithTrial, boolean post) {
+		
+
+		
 		SharedPreferences preferences = context.getSharedPreferences(
 				"edu.upenn.cis350.cancerDog.trial" + sessionNumber,
 				Context.MODE_PRIVATE);
@@ -238,6 +239,7 @@ public class Trial {
 				editor.putInt("numTrials", getNumTrials() + 1);
 				numTrials += 1;
 				editor.commit();
+
 			}
 			if(post) {
 				HashMap<String, Object> trial = toHashMap();
@@ -366,7 +368,7 @@ public class Trial {
 	public void addDirection(String d) {
 		directions.add(d);
 	}
-/*Stringify data**/
+
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		s.append("sessionNumber: " + (sessionNumber + 1) + "\n");
@@ -401,15 +403,29 @@ public class Trial {
 
 		return s.toString();
 	}
-	
-/**Post to database**/
+
 	private static class PostJson extends
 			AsyncTask<HashMap<String, Object>, Void, Void> {
+		
+		public void postData() {
+
+			String fullUrl = "https://docs.google.com/forms/d/19Nh83jx9ogs4urOVIeRnC3bpBG4IOd26A8J1-NJxhu4/formResponse";
+			HttpRequest mReq = new HttpRequest();
+			String col1 = "BUY ME";
+			String col2 = "DONUTSSSSSSSS";
+			
+			String data = "entry.898209504=" + URLEncoder.encode(col1) + "&" + 
+						  "entry.1575620025=" + URLEncoder.encode(col2);
+			Log.i("DATA", data);
+			String response = mReq.sendPost(fullUrl, data);
+
+		} 
 
 		@Override
-		protected Void doInBackground(HashMap<String, Object>... arg0) {
+		protected Void doInBackground(HashMap<String, Object>... arg0) { 
 			String json = new GsonBuilder().create().toJson(arg0[0], Map.class);
 			try {
+				postData();
 				HttpPost httpPost = new HttpPost(
 						"http://pennvet.herokuapp.com/");
 				httpPost.setEntity(new StringEntity(json));
@@ -423,17 +439,17 @@ public class Trial {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return null;
+			return null; 		
 		}
 
+
 	}
-/**Runs in background to get trial sessions from heroku**/
 
 	private static class GetSessions extends AsyncTask<Void, Void, Void> {
 
 		@Override
 		protected Void doInBackground(Void... arg0) {
-			try {
+			/* try {
 				HttpGet httpGet = new HttpGet("http://pennvet.herokuapp.com/");
 				HttpResponse response = new DefaultHttpClient()
 						.execute(httpGet);
@@ -500,7 +516,7 @@ public class Trial {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			} */
 			return null;
 		}
 
