@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:baselineAligned="false"
+    android:clickable="true"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp" >
+
+    <TextView
+        android:id="@+id/PWDCText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/penn_working_dog_center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/DDText"
+        android:layout_width="274dp"
+        android:layout_height="46dp"
+        android:gravity="center"
+        android:text="@string/doggy_detector"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="37sp" />
+
+    <Button
+        android:id="@+id/StartTrialButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:background="#D6D6D6"
+        android:onClick="onLaunchButtonClick"
+        android:text="@string/start_trial"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        android:typeface="normal" />
+
+    <Button
+        android:id="@+id/ViewHistoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#D6D6D6"
+        android:onClick="onViewButtonClick"
+        android:text="@string/view_history"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        android:typeface="normal" />
+
+    <Button
+        android:id="@+id/SettingsButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#D6D6D6"
+        android:onClick="onEditDefaultButtonClick"
+        android:text="@string/settings"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        android:typeface="normal" />
+
+</LinearLayout>
