@@ -29,8 +29,8 @@ public class RandomizeActivityTest extends ActivityInstrumentationTestCase2<Rand
         rAct = getActivity();
         mSpinner =(Spinner) rAct.findViewById(R.id.spinner);
         mPicker =(NumberPicker) rAct.findViewById(R.id.controlNumberPicker);
-        label1 = (TextView) rAct.findViewById(R.id.textView1);
-        label2 = (TextView) rAct.findViewById(R.id.textView2);
+        label1 = (TextView) rAct.findViewById(R.id.DDText);
+        label2 = (TextView) rAct.findViewById(R.id.PWDCText);
         select = (Button) rAct.findViewById(R.id.randomize);
         next = (Button) rAct.findViewById(R.id.next);
     }

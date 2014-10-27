@@ -24,9 +24,9 @@ public class TrialActivityTest extends ActivityInstrumentationTestCase2<TrialAct
 	protected void setUp() throws Exception {
         super.setUp();
         tAct = getActivity();
-        label1 = (TextView) tAct.findViewById(R.id.textView1);
-        label2 = (TextView) tAct.findViewById(R.id.textView2);
-        label3 = (TextView) tAct.findViewById(R.id.textView3);
+        label1 = (TextView) tAct.findViewById(R.id.DDText);
+        label2 = (TextView) tAct.findViewById(R.id.PWDCText);
+        label3 = (TextView) tAct.findViewById(R.id.Colon);
         label4 = (TextView) tAct.findViewById(R.id.textView4);
         label5 = (TextView) tAct.findViewById(R.id.textView5);
         label6 = (TextView) tAct.findViewById(R.id.textView6);
