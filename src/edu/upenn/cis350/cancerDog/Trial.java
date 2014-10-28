@@ -21,6 +21,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
+
+import java.net.URLEncoder;
+
+import android.app.Activity;
+import android.os.Bundle;
 import android.util.Log;
 
 public class Trial {
@@ -177,8 +182,13 @@ public class Trial {
 		PostJson task = new PostJson();
 		task.execute((HashMap<String, Object>[]) (new HashMap[] { trial }));
 	}
+	
+	
 
 	public void save(boolean doneWithTrial, boolean post) {
+		
+
+		
 		SharedPreferences preferences = context.getSharedPreferences(
 				"edu.upenn.cis350.cancerDog.trial" + sessionNumber,
 				Context.MODE_PRIVATE);
@@ -229,6 +239,7 @@ public class Trial {
 				editor.putInt("numTrials", getNumTrials() + 1);
 				numTrials += 1;
 				editor.commit();
+
 			}
 			if(post) {
 				HashMap<String, Object> trial = toHashMap();
@@ -395,11 +406,26 @@ public class Trial {
 
 	private static class PostJson extends
 			AsyncTask<HashMap<String, Object>, Void, Void> {
+		
+		public void postData() {
+
+			String fullUrl = "https://docs.google.com/forms/d/19Nh83jx9ogs4urOVIeRnC3bpBG4IOd26A8J1-NJxhu4/formResponse";
+			HttpRequest mReq = new HttpRequest();
+			String col1 = "BUY ME";
+			String col2 = "DONUTSSSSSSSS";
+			
+			String data = "entry.898209504=" + URLEncoder.encode(col1) + "&" + 
+						  "entry.1575620025=" + URLEncoder.encode(col2);
+			Log.i("DATA", data);
+			String response = mReq.sendPost(fullUrl, data);
+
+		} 
 
 		@Override
-		protected Void doInBackground(HashMap<String, Object>... arg0) {
+		protected Void doInBackground(HashMap<String, Object>... arg0) { 
 			String json = new GsonBuilder().create().toJson(arg0[0], Map.class);
 			try {
+				postData();
 				HttpPost httpPost = new HttpPost(
 						"http://pennvet.herokuapp.com/");
 				httpPost.setEntity(new StringEntity(json));
@@ -413,8 +439,9 @@ public class Trial {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return null;
+			return null; 		
 		}
+
 
 	}
 
@@ -422,7 +449,7 @@ public class Trial {
 
 		@Override
 		protected Void doInBackground(Void... arg0) {
-			try {
+			/* try {
 				HttpGet httpGet = new HttpGet("http://pennvet.herokuapp.com/");
 				HttpResponse response = new DefaultHttpClient()
 						.execute(httpGet);
@@ -489,7 +516,7 @@ public class Trial {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			} */
 			return null;
 		}
 
