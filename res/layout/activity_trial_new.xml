@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/GridLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:columnCount="2"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    tools:context=".TrialActivityNew" >
 
     <Space
         android:layout_column="1"
@@ -26,7 +28,7 @@
         android:background="#D6D6D6"
         android:text="@string/start_new_trial"
         android:textColor="#000000"
-        android:textSize="25sp" />
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/Configuration"
@@ -39,7 +41,7 @@
         android:text="@string/configuration_"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="19sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/Control"
@@ -47,12 +49,12 @@
         android:layout_gravity="start|top"
         android:layout_marginLeft="45dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:layout_row="1"
         android:text="@string/control"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="19sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/Benign"
@@ -60,12 +62,12 @@
         android:layout_gravity="start|top"
         android:layout_marginLeft="45dp"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="275dp"
         android:layout_row="1"
         android:text="@string/benign"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="19sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/MalignantText"
@@ -73,12 +75,12 @@
         android:layout_gravity="start|top"
         android:layout_marginLeft="45dp"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="350dp"
         android:layout_row="1"
         android:text="@string/malignant"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="19sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/Dog"
@@ -86,12 +88,12 @@
         android:layout_gravity="start|center_vertical"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="75dp"
         android:layout_row="1"
         android:text="@string/dog_"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="19sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/Tester"
@@ -99,12 +101,12 @@
         android:layout_gravity="start|center_vertical"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="375dp"
         android:layout_row="1"
         android:text="@string/tester_"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="19sp" />
+        android:textSize="35sp" />
 
     <Button
         android:id="@+id/Begin"
@@ -121,6 +123,6 @@
         android:background="#D6D6D6"
         android:text="@string/begin"
         android:textColor="#000000"
-        android:textSize="25sp" />
+        android:textSize="50sp" />
 
 </GridLayout>

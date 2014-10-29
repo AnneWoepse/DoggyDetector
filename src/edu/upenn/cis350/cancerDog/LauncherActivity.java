@@ -22,7 +22,7 @@ public class LauncherActivity extends Activity {
 	public void onLaunchButtonClick (View v) {
 		//setContentView(new WheelView(this));
 		Trial.getNewTrial();
-		Intent i = new Intent(this, RandomizeActivity.class);
+		Intent i = new Intent(this, TrialActivityNew.class);
 		
 		startActivityForResult(i,ButtonClickActivity_ID);
 	}
@@ -38,7 +38,7 @@ public class LauncherActivity extends Activity {
 	}
 	
 	public void onEditDefaultButtonClick(View v) {
-		Intent i = new Intent(this, EditDefaultActivity.class);
+		Intent i = new Intent(this, EditDefaultActivityNew.class);
 		startActivityForResult(i, ButtonClickActivity_ID);
 	}
 	

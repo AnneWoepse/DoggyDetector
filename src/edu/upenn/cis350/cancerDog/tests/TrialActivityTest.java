@@ -25,7 +25,7 @@ public class TrialActivityTest extends ActivityInstrumentationTestCase2<TrialAct
         super.setUp();
         tAct = getActivity();
         label1 = (TextView) tAct.findViewById(R.id.DDText);
-        label2 = (TextView) tAct.findViewById(R.id.PWDCText);
+        label2 = (TextView) tAct.findViewById(R.id.BenignText);
         label3 = (TextView) tAct.findViewById(R.id.Colon);
         label4 = (TextView) tAct.findViewById(R.id.textView4);
         label5 = (TextView) tAct.findViewById(R.id.textView5);

@@ -78,6 +78,9 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
+        <activity android:name="EditDefaultActivityNew" android:screenOrientation="portrait" android:label="@string/app_name"></activity>
+        <activity android:name="TrialActivityNew"></activity>
+        
     </application>
 
 </manifest>

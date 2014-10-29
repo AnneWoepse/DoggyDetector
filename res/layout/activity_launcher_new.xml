@@ -11,36 +11,40 @@
     android:paddingRight="25dp" >
 
     <TextView
-        android:id="@+id/PWDCText"
+        android:id="@+id/BenignText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:text="@string/penn_working_dog_center"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
-        android:textSize="21sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/DDText"
-        android:layout_width="274dp"
-        android:layout_height="46dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/doggy_detector"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
-        android:textSize="37sp" />
+        android:textSize="75sp" />
 
     <Button
         android:id="@+id/StartTrialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="150dp"
         android:background="#D6D6D6"
         android:onClick="onLaunchButtonClick"
         android:text="@string/start_trial"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:textSize="25sp"
+        android:textSize="50sp"
         android:textStyle="normal"
         android:typeface="normal" />
 
@@ -48,13 +52,17 @@
         android:id="@+id/ViewHistoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
         android:background="#D6D6D6"
         android:onClick="onViewButtonClick"
         android:text="@string/view_history"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:textSize="25sp"
+        android:textSize="50sp"
         android:textStyle="normal"
         android:typeface="normal" />
 
@@ -62,13 +70,17 @@
         android:id="@+id/SettingsButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
         android:background="#D6D6D6"
         android:onClick="onEditDefaultButtonClick"
         android:text="@string/settings"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:textSize="25sp"
+        android:textSize="50sp"
         android:textStyle="normal"
         android:typeface="normal" />
 
