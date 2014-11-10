@@ -37,12 +37,12 @@ public class TrialActivity extends Activity{
 		}
 		adapterDog.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
-		handler = (Spinner) findViewById(R.id.spinner1);
+		handler = (Spinner) findViewById(R.id.dogSpinner1);
 		handler.setAdapter(adapterHandler);
 		dog = (Spinner) findViewById(R.id.spinner2);
 		dog.setAdapter(adapterDog);
 		
-		videographer = (EditText) findViewById(R.id.editText1);
+		videographer = (EditText) findViewById(R.id.Email);
 		observers = (EditText) findViewById(R.id.editText2);
 		
 		

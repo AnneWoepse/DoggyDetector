@@ -43,7 +43,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 	
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/dogSpinner1"
         android:layout_width="110dp"
         android:layout_height="38dp"
         android:layout_column="0"

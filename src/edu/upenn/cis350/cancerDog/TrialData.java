@@ -22,7 +22,7 @@ public class TrialData extends Activity {
 		setContentView(R.layout.activity_trialdata);
 		ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.results, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		int[] spinnerIds = {R.id.spinner1, R.id.spinner2, R.id.spinner3, R.id.spinner4, R.id.spinner5, R.id.spinner6, R.id.spinner7, R.id.spinner8};
+		int[] spinnerIds = {R.id.dogSpinner1, R.id.spinner2, R.id.spinner3, R.id.spinner4, R.id.spinner5, R.id.spinner6, R.id.spinner7, R.id.spinner8};
 		for(int i = 0; i < spinnerIds.length; i++) {
 			spinners[i] = (Spinner) findViewById(spinnerIds[i]);
 			spinners[i].setAdapter(adapter);
