@@ -58,5 +58,10 @@
         <string name="dog_">Dog:</string>
         <string name="tester_">Tester:</string>
         <string name="begin">Begin</string>
+        <string name="_from_default_control"># from default control</string>
+        <string name="_from_default_benign"># from default benign</string>
+        <string name="_from_default_malignant"># from default malignant</string>
+        <string name="dog_from_default_setting">dog from default setting</string>
+        <string name="tester_from_default_setting">tester from default setting</string>
     
 </resources>
