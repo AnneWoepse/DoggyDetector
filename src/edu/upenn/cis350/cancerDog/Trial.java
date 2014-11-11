@@ -32,7 +32,8 @@ public class Trial {
 	private static Integer numTrials;
 	public static Context context;
 	private static HashMap<Integer, Trial> cache = new HashMap<Integer, Trial>();
-	private Integer sessionNumber;
+	private static Integer sessionNumber;
+	private  Integer sessionNumber2; //old v of session number 
 	private int expSlot;
 	private String expName;
 	private HashMap<Integer, String> controls = new HashMap<Integer, String>();
@@ -50,7 +51,12 @@ public class Trial {
 																	// on the
 																	// top in
 																	// trials
-
+	private static final String FORM_URL = "https://docs.google.com/a/seas.upenn.edu/forms/d/1ejBueRyDQLEFrqcddkEOIWUXCJFOHQ9IBZpCyJDrAJU/formResponse";
+	private static final String ADMIN_ENTRY = "entry.1749728713=";
+	private static final String DOG_ENTRY = "entry.273386690=";
+	private static final String T1_COMMENTS_ENTRY = "entry.2085137680=";
+	private static final String T2_COMMENTS_ENTRY = "entry.1880109834=";
+	
 	public static Trial getTrial(int num) {
 		if (cache.containsKey(num)) {
 			return cache.get(num);
@@ -408,16 +414,18 @@ public class Trial {
 			AsyncTask<HashMap<String, Object>, Void, Void> {
 		
 		public void postData() {
-
-			String fullUrl = "https://docs.google.com/forms/d/19Nh83jx9ogs4urOVIeRnC3bpBG4IOd26A8J1-NJxhu4/formResponse";
+			SharedPreferences preferences = context.getSharedPreferences(
+					"edu.upenn.cis350.cancerDog.trial" + sessionNumber,
+					Context.MODE_PRIVATE);
+			//String fullUrl = "https://docs.google.com/forms/d/19Nh83jx9ogs4urOVIeRnC3bpBG4IOd26A8J1-NJxhu4/formResponse";
 			HttpRequest mReq = new HttpRequest();
-			String col1 = "BUY ME";
-			String col2 = "DONUTSSSSSSSS";
+			String col1 = preferences.getString("dog", "woof");
+			String col2 = preferences.getString("dog", "woof");
 			
-			String data = "entry.898209504=" + URLEncoder.encode(col1) + "&" + 
-						  "entry.1575620025=" + URLEncoder.encode(col2);
+			String data = T1_COMMENTS_ENTRY + URLEncoder.encode(col1) + "&" + 
+						T2_COMMENTS_ENTRY + URLEncoder.encode(col2);
 			Log.i("DATA", data);
-			String response = mReq.sendPost(fullUrl, data);
+			String response = mReq.sendPost(FORM_URL, data);
 
 		} 
 
